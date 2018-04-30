@@ -1,4 +1,10 @@
-body a {
-  color: green;
-  font-size: 50px; }
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9zY3NzL21haW4uc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUdRLGFBQVc7RUFDWCxnQkFBZSxFQUNsQiIsImZpbGUiOiJtYWluLmNzcyJ9 */
+.header {
+  background-image: url("https://media-public.fcbarcelona.com/20157/74594198/910692/1.2/910692.jpg");
+  background-position: bottom center;
+  background-size: cover;
+  -webkit-transition: background 0.3s, border 0.3s, border-radius 0.3s, -webkit-box-shadow 0.3s;
+  transition: background 0.3s, border 0.3s, border-radius 0.3s, -webkit-box-shadow 0.3s;
+  transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+  transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s, -webkit-box-shadow 0.3s;
+  padding: 120px 0px 240px 0px; }
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9zY3NzL21haW4uc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUVJLG1HQUFrRztFQUNsRyxtQ0FBa0M7RUFDbEMsdUJBQXNCO0VBQ3RCLDhGQUE2RTtFQUE3RSxzRkFBNkU7RUFBN0UsOEVBQTZFO0VBQTdFLHVHQUE2RTtFQUM3RSw2QkFBNEIsRUFFL0IiLCJmaWxlIjoibWFpbi5jc3MifQ== */
