@@ -1,11 +1,12 @@
 import React from "react";
 import ReactDOM,{render} from "react-dom";
-import Navbar from "./components/Navbar"
+import Header from './components/Header'
+
 class App extends React.Component{
     render(){
         return (
             <div>
-                <Navbar />
+                <Header imgUrl='https://media-public.fcbarcelona.com/20157/74594198/910692/1.2/910692.jpg'/>
             </div>
         )
     }
