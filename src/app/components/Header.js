@@ -1,0 +1,21 @@
+import React from 'react'
+import ReactDOM,{render} from "react-dom";
+
+class Header extends React.Component{
+
+    constructor(props){
+        super(props)
+    }
+    render(){
+        var image = this.props.imgUrl
+        var mainText = this.props.mainText
+        var subText = this.props.subText
+
+        return(
+            <div className='header'>
+                    test
+            </div>
+        )
+    }
+}
+export default Header
