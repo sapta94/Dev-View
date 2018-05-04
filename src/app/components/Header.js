@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM,{render} from "react-dom";
+import '../css/main.css'
 
 class Header extends React.Component{
 
