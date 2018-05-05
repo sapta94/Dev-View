@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM,{render} from "react-dom";
 import '../css/main.css'
 
+
+
 class Header extends React.Component{
 
     constructor(props){
@@ -14,7 +16,9 @@ class Header extends React.Component{
 
         return(
             <div className='header'>
-                    test
+                    <div className='layer'>
+                    
+                    </div>
             </div>
         )
     }
