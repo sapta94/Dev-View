@@ -22,4 +22,10 @@
     border-bottom-left-radius:30%;
     border-bottom-right-radius:30%;
 }
+.head-box{
+  padding:50px 50px 50px 50px;
+  text-align: center;
+  font-size: 20px;
+  border: 2px solid black;
+}
 /*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9zY3NzL21haW4uc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUVJLG1HQUFrRztFQUNsRyxtQ0FBa0M7RUFDbEMsdUJBQXNCO0VBQ3RCLDhGQUE2RTtFQUE3RSxzRkFBNkU7RUFBN0UsOEVBQTZFO0VBQTdFLHVHQUE2RTtFQUM3RSw2QkFBNEIsRUFFL0IiLCJmaWxlIjoibWFpbi5jc3MifQ== */
