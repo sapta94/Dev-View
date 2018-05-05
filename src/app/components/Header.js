@@ -15,10 +15,16 @@ class Header extends React.Component{
         var subText = this.props.subText
 
         return(
-            <div className='header'>
-                    <div className='layer'>
-                    
-                    </div>
+            <div>
+                <div className='header'>
+                        <div className='layer'>
+                        </div>
+                </div>
+                <div className="card" style={{width: "18rem"}}>
+                <div className="card-body">
+                    <h4 className="card-text">Dev View</h4>
+                </div>
+                </div>
             </div>
         )
     }
