@@ -9,4 +9,17 @@
   padding: 120px 0px 240px 0px;
   border-bottom-left-radius:30%;
   border-bottom-right-radius:30%; }
+  .layer {
+    background-color: transparent;
+    background-image: linear-gradient(250deg, #00ede9 0%, #1956b7 94%);
+    opacity: 0.81;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    padding: 120px 0px 240px 0px;
+    border-bottom-left-radius:30%;
+    border-bottom-right-radius:30%;
+}
 /*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9zY3NzL21haW4uc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUVJLG1HQUFrRztFQUNsRyxtQ0FBa0M7RUFDbEMsdUJBQXNCO0VBQ3RCLDhGQUE2RTtFQUE3RSxzRkFBNkU7RUFBN0UsOEVBQTZFO0VBQTdFLHVHQUE2RTtFQUM3RSw2QkFBNEIsRUFFL0IiLCJmaWxlIjoibWFpbi5jc3MifQ== */
