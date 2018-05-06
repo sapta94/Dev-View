@@ -18,12 +18,13 @@ class Header extends React.Component{
             <div>
                 <div className='header'>
                         <div className='layer'>
+                            <p className="animated fadeInDown">Dev View</p>
+                            <div className="divider">
+                                <div className="separator">
+                                
+                                </div>
+                            </div>
                         </div>
-                </div>
-                <div className="card" style={{width: "18rem"}}>
-                <div className="card-body">
-                    <h4 className="card-text">Dev View</h4>
-                </div>
                 </div>
             </div>
         )
