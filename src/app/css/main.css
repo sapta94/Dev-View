@@ -7,25 +7,54 @@
   transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
   transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s, -webkit-box-shadow 0.3s;
   padding: 120px 0px 240px 0px;
-  border-bottom-left-radius:30%;
-  border-bottom-right-radius:30%; }
-  .layer {
-    background-color: transparent;
-    background-image: linear-gradient(250deg, #00ede9 0%, #1956b7 94%);
-    opacity: 0.81;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    padding: 120px 0px 240px 0px;
-    border-bottom-left-radius:30%;
-    border-bottom-right-radius:30%;
-}
-.head-box{
-  padding:50px 50px 50px 50px;
+  border-bottom-left-radius: 30%;
+  border-bottom-right-radius: 30%; }
+
+.layer {
+  background-color: transparent;
+  background-image: linear-gradient(250deg, #00ede9 0%, #1956b7 94%);
+  opacity: 0.81;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  padding: 120px 0px 100px 0px;
+  border-bottom-left-radius: 30%;
+  border-bottom-right-radius: 30%;
+  color: white;
   text-align: center;
-  font-size: 20px;
-  border: 2px solid black;
-}
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9zY3NzL21haW4uc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUVJLG1HQUFrRztFQUNsRyxtQ0FBa0M7RUFDbEMsdUJBQXNCO0VBQ3RCLDhGQUE2RTtFQUE3RSxzRkFBNkU7RUFBN0UsOEVBQTZFO0VBQTdFLHVHQUE2RTtFQUM3RSw2QkFBNEIsRUFFL0IiLCJmaWxlIjoibWFpbi5jc3MifQ== */
+  font-family: "Roboto Slab", Sans-serif;
+  font-size: 65px;
+  font-weight: 400; }
+
+.divider {
+  text-align: center;
+  margin-left: 48%;
+  padding-bottom: 24px; }
+  .divider .separator {
+    text-align: center;
+    border-top-style: solid;
+    border-top-width: 3px;
+    border-top-color: #ffffff;
+    width: 5%; }
+
+.animated {
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown; }
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px); }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+
+/*# sourceMappingURL=main.css.map */
