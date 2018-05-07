@@ -7,8 +7,8 @@
     transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
     transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s, -webkit-box-shadow 0.3s;
     padding: 120px 0px 240px 0px;
-    border-bottom-left-radius:30%;
-    border-bottom-right-radius:30%; }
+    border-bottom-left-radius:20%;
+    border-bottom-right-radius:20%; }
 .layer {
       background-color: transparent;
       background-image: linear-gradient(250deg, #00ede9 0%, #1956b7 94%);
@@ -60,4 +60,8 @@
        opacity: 1;
        transform: translateY(0);
     }
+ }
+
+ .searchBar{
+
  }
