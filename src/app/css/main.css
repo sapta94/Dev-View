@@ -57,9 +57,9 @@
     opacity: 1;
     transform: translateY(0); } }
 
-.searchBar {
-  background-color: grey;
-  border: 2px solid black;
-  border-radius: 2px; }
+.searchHead {
+  text-align: center;
+  font-family: 'Anton', sans-serif;
+  font-size: 50px; }
 
 /*# sourceMappingURL=main.css.map */
