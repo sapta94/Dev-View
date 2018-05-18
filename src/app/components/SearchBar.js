@@ -13,6 +13,7 @@ class SearchBar extends React.Component{
                 <div className="searchHead">
                     <p>-Search Here-</p>
                 </div>
+                <div class="row justify-content-md-center">
                 <div class="form-group col-md-8">
                     <label for="usr">Name:</label>
                     <input type="text" class="form-control" id="usr"/>
@@ -36,6 +37,7 @@ class SearchBar extends React.Component{
                 <div class="form-group col-md-8">
                     <label for="commit">Commits:</label>
                     <input type="text" class="form-control" id="commit"/>
+                </div>
                 </div>
             </div>
         )
