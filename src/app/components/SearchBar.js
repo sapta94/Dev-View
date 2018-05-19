@@ -13,7 +13,8 @@ class SearchBar extends React.Component{
                 'repo':'',
                 'lang':'',
                 'commit':''
-            }
+            },
+            isSearching:false
         }
         this.onChange=this.onChange.bind(this)
         this.onSubmit=this.onSubmit.bind(this)
@@ -31,6 +32,10 @@ class SearchBar extends React.Component{
     }
 
     onSubmit(){
+        this.setState({
+            isSearching:true
+        })
+        var that=this
         var formData = this.state.formData;
         var url="https://api.github.com/search/users?q="
         if(formData.name!=''){
@@ -52,15 +57,28 @@ class SearchBar extends React.Component{
         axios.get(url)
         .then(function (response) {
             console.log(response);
+            that.setState({
+                isSearching:false
+            })
         })
         .catch(function (error) {
             console.log(error);
+            alert('Cannot perform search')
+            this.setState({
+                isSearching:false
+            })
         });
     }
 
     render(){
         var data=this.state.formData;
         var that=this;
+        if(this.state.isSearching){
+            var button=<button type="button" disabled onClick={that.onSubmit} class="btn btn-primary">Searching <i className="fa fa-spinner fa-spin" style={{fontSize:'24px'}}> </i></button>
+        }
+        else{
+            var button=<button type="button" onClick={that.onSubmit} class="btn btn-primary">Search</button>
+        }
         return(
             <div>
                 <div className="searchHead">
@@ -88,7 +106,7 @@ class SearchBar extends React.Component{
                     <input type="text" onChange={(e)=>{that.onChange(e)}} value={data.commit} class="form-control" name="commit"/>
                 </div>
                 </div>
-                <center><button type="button" onClick={that.onSubmit} class="btn btn-primary">Search</button></center>
+                <center>{button}</center>
             </div>
         )
     }
