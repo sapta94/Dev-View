@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM,{render} from "react-dom";
+import axios from 'axios'
 
 
 class SearchBar extends React.Component{
@@ -15,6 +16,7 @@ class SearchBar extends React.Component{
             }
         }
         this.onChange=this.onChange.bind(this)
+        this.onSubmit=this.onSubmit.bind(this)
     }
 
     onChange(e){
@@ -26,6 +28,34 @@ class SearchBar extends React.Component{
         this.setState({
             formData:formData
         })
+    }
+
+    onSubmit(){
+        var formData = this.state.formData;
+        var url="https://api.github.com/search/users?q="
+        if(formData.name!=''){
+            url+=formData.name
+        }
+        if(formData.loc!=''){
+            url+="+location:"+formData.loc
+        }
+        if(formData.repo!=''){
+            url+="+repos:"+formData.repo
+        }
+        if(formData.lang!=''){
+            url+="+language:"+formData.language
+        }
+        if(formData.commit!=''){
+            url+="+commits:"+formData.commit
+        }
+
+        axios.get(url)
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
     }
 
     render(){
@@ -58,7 +88,7 @@ class SearchBar extends React.Component{
                     <input type="text" onChange={(e)=>{that.onChange(e)}} value={data.commit} class="form-control" name="commit"/>
                 </div>
                 </div>
-                <center><button type="button" class="btn btn-primary">Search</button></center>
+                <center><button type="button" onClick={that.onSubmit} class="btn btn-primary">Search</button></center>
             </div>
         )
     }
