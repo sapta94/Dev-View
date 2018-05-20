@@ -10,7 +10,7 @@ class Results extends React.Component{
         var data=this.props.result
 
         return(
-            <div className="row">
+            <div className="row container justify-content-md-center">
             {
                 data.map(function(item,index){
                     return(
