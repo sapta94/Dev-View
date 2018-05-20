@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM,{render} from "react-dom";
 import axios from 'axios'
-
+import Results from './Results'
 
 class SearchBar extends React.Component{
     constructor(props){
@@ -14,7 +14,8 @@ class SearchBar extends React.Component{
                 'lang':'',
                 'commit':''
             },
-            isSearching:false
+            isSearching:false,
+            userData:[]
         }
         this.onChange=this.onChange.bind(this)
         this.onSubmit=this.onSubmit.bind(this)
@@ -48,7 +49,7 @@ class SearchBar extends React.Component{
             url+="+repos:"+formData.repo
         }
         if(formData.lang!=''){
-            url+="+language:"+formData.language
+            url+="+language:"+formData.lang
         }
         if(formData.commit!=''){
             url+="+commits:"+formData.commit
@@ -56,9 +57,11 @@ class SearchBar extends React.Component{
 
         axios.get(url)
         .then(function (response) {
+            console.log('now this is printed')
             console.log(response);
             that.setState({
-                isSearching:false
+                isSearching:false,
+                userData:response.data.items
             })
         })
         .catch(function (error) {
@@ -68,10 +71,12 @@ class SearchBar extends React.Component{
                 isSearching:false
             })
         });
+        console.log('here')
     }
 
     render(){
         var data=this.state.formData;
+        var resData=this.state.userData;
         var that=this;
         if(this.state.isSearching){
             var button=<button type="button" disabled onClick={that.onSubmit} class="btn btn-primary">Searching <i className="fa fa-spinner fa-spin" style={{fontSize:'24px'}}> </i></button>
@@ -79,34 +84,41 @@ class SearchBar extends React.Component{
         else{
             var button=<button type="button" onClick={that.onSubmit} class="btn btn-primary">Search</button>
         }
+        if(resData.length>0){
+            var results = <Results result={resData}/>
+        }
+        else{
+            var results='';
+        }
         return(
             <div>
                 <div className="searchHead">
                     <p>-Search Here-</p>
                 </div>
-                <div class="row justify-content-md-center">
-                <div class="form-group col-md-8">
+                <div className="row justify-content-md-center">
+                <div className="form-group col-md-8">
                     <label for="name">Name:</label>
                     <input type="text" onChange={(e)=>{that.onChange(e)}} value={data.name} class="form-control" name="name"/>
                 </div>
-                <div class="form-group col-md-8">
+                <div className="form-group col-md-8">
                     <label for="loc">Location:</label>
                     <input type="text" onChange={(e)=>{that.onChange(e)}} value={data.loc} class="form-control" name="loc"/>
                 </div>
-                <div class="form-group col-md-8">
+                <div className="form-group col-md-8">
                     <label for="repo">Repositories:</label>
                     <input type="text" onChange={(e)=>{that.onChange(e)}} value={data.repo} class="form-control" name="repo"/>
                 </div>
-                <div class="form-group col-md-8">
+                <div className="form-group col-md-8">
                     <label for="lang">Language:</label>
                     <input type="text" onChange={(e)=>{that.onChange(e)}} value={data.lang} class="form-control" name="lang"/>
                 </div>
-                <div class="form-group col-md-8">
+                <div className="form-group col-md-8">
                     <label for="commit">Commits:</label>
                     <input type="text" onChange={(e)=>{that.onChange(e)}} value={data.commit} class="form-control" name="commit"/>
                 </div>
                 </div>
                 <center>{button}</center>
+                {results}
             </div>
         )
     }
