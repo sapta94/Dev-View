@@ -10,11 +10,15 @@ class Results extends React.Component{
         var data=this.props.result
 
         return(
-            <div className="row container justify-content-md-center">
+            <div style={{backgroundColor:'teal',}}>
+                <div className="searchHead">
+                    <p>-Results Here-</p>
+                </div>
+            <div className="row">
             {
                 data.map(function(item,index){
                     return(
-                        <div className="card col-md-4" style={{width: "18rem"}}>
+                        <div className="card col-md-4" style={{width: "12rem"}}>
                         <img className="card-img-top" src={item.avatar_url} alt="Card image cap"/>
                         <div className="card-body">
                             <p className="card-text"><b>GITHUB ID: </b>{item.login} </p>
@@ -26,6 +30,7 @@ class Results extends React.Component{
                 })
             }
 
+            </div>
             </div>
         )
     }
