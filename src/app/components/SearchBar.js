@@ -118,6 +118,7 @@ class SearchBar extends React.Component{
                 </div>
                 </div>
                 <center>{button}</center>
+                <br/>
                 {results}
             </div>
         )
