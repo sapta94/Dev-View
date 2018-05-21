@@ -18,7 +18,7 @@ class Results extends React.Component{
             {
                 data.map(function(item,index){
                     return(
-                        <div className="card col-md-3" style={{width: "12rem",marginLeft:"70px",marginBottom:"10px"}}>
+                        <div className="card col-md-3 resultCards">
                         <img className="card-img-top" src={item.avatar_url} alt="Card image cap"/>
                         <div className="card-body">
                             <p className="card-text"><b>GITHUB ID: </b>{item.login} </p>
