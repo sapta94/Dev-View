@@ -6,9 +6,14 @@ class Results extends React.Component{
     constructor(props){
         super(props)
     }
+    getDetails(url){
+        axios.get(url).then(function(response){
+            console.log(response)
+        })
+    }
     render(){
         var data=this.props.result
-
+        var that=this;
         return(
             <div style={{backgroundColor:'teal',}}>
                 <div className="searchHead">
@@ -24,7 +29,7 @@ class Results extends React.Component{
                             <p className="card-text"><b>GITHUB ID: </b>{item.login} </p>
                             <p className="card-text"><b>Score: </b>{item.score} </p>
                             <a href={item.html_url} target="_blank" className="card-link">View Profile</a>
-                            <a href={item.html_url} target="_blank" className="card-link">More details</a>
+                            <a onClick={that.getDetails(item.url)}  className="card-link">More details</a>
                         </div>
                         </div>
                     )
