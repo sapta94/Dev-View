@@ -29,7 +29,7 @@ class Results extends React.Component{
                             <p className="card-text"><b>GITHUB ID: </b>{item.login} </p>
                             <p className="card-text"><b>Score: </b>{item.score} </p>
                             <a href={item.html_url} target="_blank" className="card-link">View Profile</a>
-                            <a onClick={that.getDetails(item.url)}  className="card-link">More details</a>
+                            <a onClick={()=>that.getDetails(item.url)}  className="card-link">More details</a>
                         </div>
                         </div>
                     )
