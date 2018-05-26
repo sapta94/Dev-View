@@ -12,19 +12,27 @@ class Results extends React.Component{
 
             }
         }
+        this.getDetails=this.getDetails.bind(this)
     }
     getDetails(url){
+        var that=this
         axios.get(url).then(function(response){
-            this.setState({
-                moreData:response
+            that.setState({
+                moreData:response,
+                modal:true
             })
+        })
+    }
+    closeModal(){
+        this.setState({
+            modal:false
         })
     }
     render(){
         var data=this.props.result
         var that=this;
         return(
-            <div style={{backgroundColor:'teal',}}>
+            <div style={{backgroundColor:'teal'}}>
                 <div className="searchHead">
                     <p>-Results Here-</p>
                 </div>
@@ -46,22 +54,23 @@ class Results extends React.Component{
             }
 
             </div>
+            <Details visible={that.state.modal} closeModal={that.state.closeModal}/>
             </div>
         )
     }
 }
 
-class Details extends Component {
+class Details extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            visible : false
+            visible : this.props.visible
         }
     }
  
     openModal() {
         this.setState({
-            visible : true
+            visible : this.props.visible
         });
     }
  
@@ -74,13 +83,11 @@ class Details extends Component {
     render() {
         return (
             <section>
-                <h1>React-Modal Examples</h1>
-                <input type="button" value="Open" onClick={() => this.openModal()} />
                 <Modal visible={this.state.visible} width="400" height="300" effect="fadeInUp" onClickAway={() => this.closeModal()}>
                     <div>
                         <h1>Details</h1>
                         <p>Some Contents</p>
-                        <a href="javascript:void(0);" onClick={() => this.closeModal()}>Close</a>
+                        <a href="javascript:void(0);" onClick={() => this.props.closeModal()}>Close</a>
                     </div>
                 </Modal>
             </section>
