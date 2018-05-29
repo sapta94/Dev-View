@@ -106,7 +106,7 @@ class SearchBar extends React.Component{
                 </div>
                 <div className="form-group col-md-8">
                     <label for="repo">Repositories:</label>
-                    <input type="text" onChange={(e)=>{that.onChange(e)}} value={data.repo} class="form-control" name="repo"/>
+                    <input type="number" onChange={(e)=>{that.onChange(e)}} value={data.repo} class="form-control" name="repo"/>
                 </div>
                 <div className="form-group col-md-8">
                     <label for="lang">Language:</label>
