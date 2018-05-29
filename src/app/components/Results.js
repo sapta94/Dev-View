@@ -82,7 +82,7 @@ class Details extends React.Component {
  
     render() {
         return (
-            <section>
+            
                 <Modal visible={this.state.visible} width="400" height="300" effect="fadeInUp" onClickAway={() => this.closeModal()}>
                     <div>
                         <h1>Details</h1>
@@ -90,7 +90,7 @@ class Details extends React.Component {
                         <a href="javascript:void(0);" onClick={() => this.props.closeModal()}>Close</a>
                     </div>
                 </Modal>
-            </section>
+            
         );
     }
 }
