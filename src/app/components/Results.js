@@ -13,6 +13,7 @@ class Results extends React.Component{
             }
         }
         this.getDetails=this.getDetails.bind(this)
+        this.closeModal=this.closeModal.bind(this)
     }
     getDetails(url){
         var that=this
@@ -31,6 +32,12 @@ class Results extends React.Component{
     render(){
         var data=this.props.result
         var that=this;
+        if(this.state.modal){
+            var modalView=<Details visible={that.state.modal} closeModal={that.closeModal}/>
+        }
+        else{
+            var modalView=""
+        }
         return(
             <div style={{backgroundColor:'teal'}}>
                 <div className="searchHead">
@@ -54,7 +61,7 @@ class Results extends React.Component{
             }
 
             </div>
-            <Details visible={that.state.modal} closeModal={that.state.closeModal}/>
+                {modalView}
             </div>
         )
     }
@@ -83,7 +90,7 @@ class Details extends React.Component {
     render() {
         return (
             
-                <Modal visible={this.state.visible} width="400" height="300" effect="fadeInUp" onClickAway={() => this.closeModal()}>
+                <Modal visible={true} width="400" height="300" effect="fadeInUp" onClickAway={() => this.closeModal()}>
                     <div>
                         <h1>Details</h1>
                         <p>Some Contents</p>
