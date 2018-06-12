@@ -93,7 +93,9 @@ class Details extends React.Component {
                 <Modal visible={true} width="400" height="300" effect="fadeInUp" onClickAway={() => this.closeModal()}>
                     <div>
                         <h1>Details</h1>
-                        <p>Some Contents</p>
+                        <p>Name</p>
+                        <p>Github Profile</p>
+                        <p></p>
                         <a href="javascript:void(0);" onClick={() => this.props.closeModal()}>Close</a>
                     </div>
                 </Modal>
