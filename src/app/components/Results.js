@@ -19,7 +19,7 @@ class Results extends React.Component{
         var that=this
         axios.get(url).then(function(response){
             that.setState({
-                moreData:response,
+                moreData:response.data,
                 modal:true
             })
         })
@@ -33,7 +33,7 @@ class Results extends React.Component{
         var data=this.props.result
         var that=this;
         if(this.state.modal){
-            var modalView=<Details visible={that.state.modal} closeModal={that.closeModal}/>
+            var modalView=<Details visible={that.state.modal} data={this.state.moreData} closeModal={that.closeModal}/>
         }
         else{
             var modalView=""
@@ -88,14 +88,20 @@ class Details extends React.Component {
     }
  
     render() {
+        var data=this.props.data
+        console.log(this.props.data)
         return (
             
                 <Modal visible={true} width="400" height="300" effect="fadeInUp" onClickAway={() => this.closeModal()}>
                     <div>
                         <h1>Details</h1>
-                        <p>Name</p>
-                        <p>Github Profile</p>
-                        <p></p>
+                        <p>Name: {data.name}</p>
+                        <p>Bio: {data.bio}</p>
+                        <p>Company: {data.company}</p>
+                        <p>Email: {data.email}</p>
+                        <p>Location: {data.location}</p>
+                        <p>Followers: {data.followers}</p>
+                        <p>Following: {data.following}</p>
                         <a href="javascript:void(0);" onClick={() => this.props.closeModal()}>Close</a>
                     </div>
                 </Modal>
