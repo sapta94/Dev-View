@@ -92,8 +92,30 @@ class Details extends React.Component {
         console.log(this.props.data)
         return (
             
-                <Modal visible={true} width="400" height="300" effect="fadeInUp" onClickAway={() => this.closeModal()}>
+                <Modal visible={true} width="400" height="600" effect="fadeInUp" onClickAway={() => this.closeModal()}>
                     <div>
+                    <table class="table table-bordered">
+                        <tr>
+                            <th>Name:</th>
+                            <td>{data.name}</td>
+                        </tr>
+                        <tr>
+                            <th>Bio:</th>
+                            <td>{data.name}</td>
+                        </tr>
+                        <tr>
+                            <th>Company:</th>
+                            <td>{data.name}</td>
+                        </tr>
+                        <tr>
+                            <th>Email:</th>
+                            <td>{data.name}</td>
+                        </tr>
+                        <tr>
+                            <th>Name:</th>
+                            <td>{data.name}</td>
+                        </tr>
+                    </table>
                         <h1>Details</h1>
                         <p>Name: {data.name}</p>
                         <p>Bio: {data.bio}</p>
