@@ -133,7 +133,7 @@ class Details extends React.Component {
                         <p>Location: {data.location}</p>
                         <p>Followers: {data.followers}</p>
                         <p>Following: {data.following}</p> */}
-                        <a href="javascript:void(0);" onClick={() => this.props.closeModal()}>Close</a>
+                        <center><button type="button" onClick={() => this.props.closeModal()} class="btn btn-primary">Close</button></center>
                     </div>
                 </Modal>
             
