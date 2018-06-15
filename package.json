@@ -8,8 +8,8 @@
     "node": "7.9.0"
   },
   "scripts": {
-    "start":  "cross-env SERVER_PROD_PORT=$PORT SERVER_PROD_HOST=0.0.0.0 npm run server",
-    "build": "cross-env SERVER_PROD_PORT=$PORT SERVER_PROD_HOST=0.0.0.0 npm run server",
+    "start":  "npm run server",
+    "build": "npm run server",
     "build:prod": "webpack -p  && xcopy \"src/index.html\" \"dist/\" /F /Y",
     "build-task:scss-compile": "node-sass-chokidar --source-map true src/scss/ -o src/app/css",
     "build-task:autoprefixer": "postcss dist/css/*.css --use autoprefixer -d dist/css",
