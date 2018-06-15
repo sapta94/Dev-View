@@ -8,7 +8,7 @@
     "node": "7.9.0"
   },
   "scripts": {
-    "start": "npm run build",
+    "start":  "cross-env SERVER_PROD_PORT=$PORT SERVER_PROD_HOST=0.0.0.0 npm run server",
     "build": "webpack -d  && xcopy \"src/index.html\" \"dist/\"  /F /Y && webpack-dev-server --content-base src/ --inline --watch &&  sass-watch src/scss dist/css",
     "build:prod": "webpack -p  && xcopy \"src/index.html\" \"dist/\" /F /Y",
     "build-task:scss-compile": "node-sass-chokidar --source-map true src/scss/ -o src/app/css",
