@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "npm run build",
-    "build": "webpack -p",
+    "build": "webpack -d  && xcopy \"src/index.html\" \"dist/\"  /F /Y && webpack-dev-server --content-base src/ --inline --watch &&  sass-watch src/scss dist/css",
     "build:prod": "webpack -p  && xcopy \"src/index.html\" \"dist/\" /F /Y",
     "build-task:scss-compile": "node-sass-chokidar --source-map true src/scss/ -o src/app/css",
     "build-task:autoprefixer": "postcss dist/css/*.css --use autoprefixer -d dist/css",
@@ -32,8 +32,7 @@
     "d3": "^5.1.0",
     "react": "^16.2.0",
     "react-awesome-modal": "^2.0.3",
-    "react-dom": "^16.2.0",
-    "webpack": "^2.2.0-rc.4"
+    "react-dom": "^16.2.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.6",
@@ -48,6 +47,7 @@
     "npm-run-all": "^4.1.2",
     "postcss-cli": "^4.1.1",
     "style-loader": "^0.21.0",
+    "webpack": "^2.2.0-rc.4",
     "webpack-dev-server": "^2.9.5"
   }
 }
