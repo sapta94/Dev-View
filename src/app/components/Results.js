@@ -8,6 +8,7 @@ class Results extends React.Component{
         super(props)
         this.state={
             modal:false,
+            moreDetails:false,
             moreData:{
 
             }
@@ -17,10 +18,14 @@ class Results extends React.Component{
     }
     getDetails(url){
         var that=this
+        that.setState({
+            moreDetails:true
+        })
         axios.get(url).then(function(response){
             that.setState({
                 moreData:response.data,
-                modal:true
+                modal:true,
+                moreDetails:false
             })
         })
     }
@@ -38,6 +43,7 @@ class Results extends React.Component{
         else{
             var modalView=""
         }
+        
         return(
             <div style={{backgroundColor:'teal'}}>
                 <div className="searchHead">
@@ -46,6 +52,12 @@ class Results extends React.Component{
             <div className="row">
             {
                 data.map(function(item,index){
+                    if(that.state.moreDetails){
+                        var detailView=<span><a href="javascript:void(0);" onClick={()=>that.getDetails(item.url)}  className="card-link"></a><i className="fa fa-spinner fa-spin" style={{fontSize:'24px'}}></i></span>
+                    }
+                    else{
+                        var detailView=<a href="javascript:void(0);" onClick={()=>that.getDetails(item.url)}  className="card-link">More details</a>
+                    }
                     return(
                         <div className="card col-md-3 resultCards">
                         <img className="card-img-top" src={item.avatar_url} alt="Card image cap"/>
@@ -53,7 +65,7 @@ class Results extends React.Component{
                             <p className="card-text"><b>GITHUB ID: </b>{item.login} </p>
                             <p className="card-text"><b>Score: </b>{item.score} </p>
                             <a href={item.html_url} target="_blank" className="card-link">View Profile</a>
-                            <a href="javascript:void(0);" onClick={()=>that.getDetails(item.url)}  className="card-link">More details</a>
+                            {detailView}
                         </div>
                         </div>
                     )
