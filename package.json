@@ -8,8 +8,8 @@
     "node": "7.9.0"
   },
   "scripts": {
-    "start":  "npm run server",
-    "build": "npm run server",
+    "start":  "react-scripts start",
+    "build": "react-scripts build",
     "build:prod": "webpack -p  && xcopy \"src/index.html\" \"dist/\" /F /Y",
     "build-task:scss-compile": "node-sass-chokidar --source-map true src/scss/ -o src/app/css",
     "build-task:autoprefixer": "postcss dist/css/*.css --use autoprefixer -d dist/css",
