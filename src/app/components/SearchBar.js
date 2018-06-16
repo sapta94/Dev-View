@@ -79,10 +79,10 @@ class SearchBar extends React.Component{
         var resData=this.state.userData;
         var that=this;
         if(this.state.isSearching){
-            var button=<button type="button" disabled onClick={that.onSubmit} class="btn btn-primary">Searching <i className="fa fa-spinner fa-spin" style={{fontSize:'24px'}}> </i></button>
+            var button=<button type="button" disabled onClick={that.onSubmit} className="btn btn-primary">Searching <i className="fa fa-spinner fa-spin" style={{fontSize:'24px'}}> </i></button>
         }
         else{
-            var button=<button type="button" onClick={that.onSubmit} class="btn btn-primary">Search</button>
+            var button=<button type="button" onClick={that.onSubmit} className="btn btn-primary">Search</button>
         }
         if(resData.length>0){
             var results = <Results result={resData}/>
