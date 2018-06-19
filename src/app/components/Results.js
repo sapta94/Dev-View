@@ -11,10 +11,12 @@ class Results extends React.Component{
             moreDetails:false,
             moreData:{
 
-            }
+            },
+            compareData:[]
         }
         this.getDetails=this.getDetails.bind(this)
         this.closeModal=this.closeModal.bind(this)
+        this.handleChange = this.handleChange.bind(this)
     }
     getDetails(url){
         var that=this
@@ -28,6 +30,9 @@ class Results extends React.Component{
                 moreDetails:false
             })
         })
+    }
+    handleChange(e,check){
+        console.log(e.checked)
     }
     closeModal(){
         this.setState({
@@ -64,7 +69,7 @@ class Results extends React.Component{
                         <div className="card-body">
                             <p className="card-text"><b>GITHUB ID: </b>{item.login} </p>
                             <p className="card-text"><b>Score: </b>{item.score} </p>
-                            <p>Add to Compare <input type="checkbox" className=""/></p>
+                            <p>Add to Compare <input onChange={(e)=>that.handleChange(e,this)} type="checkbox" className=""/></p>
                             <a href={item.html_url} target="_blank" className="card-link">View Profile</a>
                             {detailView}
                            
