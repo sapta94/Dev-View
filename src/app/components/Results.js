@@ -64,8 +64,10 @@ class Results extends React.Component{
                         <div className="card-body">
                             <p className="card-text"><b>GITHUB ID: </b>{item.login} </p>
                             <p className="card-text"><b>Score: </b>{item.score} </p>
+                            <p>Add to Compare <input type="checkbox" className=""/></p>
                             <a href={item.html_url} target="_blank" className="card-link">View Profile</a>
                             {detailView}
+                           
                         </div>
                         </div>
                     )
