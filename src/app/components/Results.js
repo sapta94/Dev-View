@@ -96,6 +96,7 @@ class Results extends React.Component{
 
             </div>
                 {modalView}
+                <button type="button" onClick={() => this.props.closeModal()} class="btn btn-primary">Compare</button>
             </div>
         )
     }
