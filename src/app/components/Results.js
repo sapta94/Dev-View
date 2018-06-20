@@ -31,8 +31,23 @@ class Results extends React.Component{
             })
         })
     }
-    handleChange(e,check){
-        console.log(e.checked)
+    handleChange(e,item){
+        console.log(e.target.checked)
+        var arr=this.state.compareData
+        if(e.target.checked){
+            arr.push(item)
+        }
+        else{
+            arr.forEach(function(anItem,index){
+                if(anItem.login==item.login){
+                    arr.splice(index,1)
+                }
+            })
+        }
+        console.log(arr)
+        this.setState({
+            compareData:arr
+        })
     }
     closeModal(){
         this.setState({
@@ -69,7 +84,7 @@ class Results extends React.Component{
                         <div className="card-body">
                             <p className="card-text"><b>GITHUB ID: </b>{item.login} </p>
                             <p className="card-text"><b>Score: </b>{item.score} </p>
-                            <p>Add to Compare <input onChange={(e)=>that.handleChange(e,this)} type="checkbox" className=""/></p>
+                            <p>Add to Compare <input onChange={(e)=>that.handleChange(e,item)} type="checkbox" className=""/></p>
                             <a href={item.html_url} target="_blank" className="card-link">View Profile</a>
                             {detailView}
                            
