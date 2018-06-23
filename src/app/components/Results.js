@@ -13,7 +13,9 @@ class Results extends React.Component{
 
             },
             compareData:[],
-            compareResponse:[]
+            compareResponse:[],
+            display:'none',
+            compareDisplay:false
         }
         this.getDetails=this.getDetails.bind(this)
         this.closeModal=this.closeModal.bind(this)
@@ -59,6 +61,10 @@ class Results extends React.Component{
 
     compareData(){
         var that=this;
+        that.setState({
+            compareDisplay:true,
+            display:''
+        })
         var compare=this.state.compareData;
         var compareResponse=[];
         compare.forEach(function(anItem){
@@ -115,7 +121,7 @@ class Results extends React.Component{
 
             </div>
                 {modalView}
-                <center><button type="button" onClick={() => this.compareData()} class="btn btn-primary">Compare</button></center>
+                <center><button type="button" disabled={this.state.compareDisplay} onClick={() => this.compareData()} class="btn btn-primary">Compare<i  className="fa fa-spinner fa-spin" style={{fontSize:'24px',display:this.state.display}}></i></button></center>
             </div>
         )
     }
