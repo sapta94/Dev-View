@@ -12,11 +12,13 @@ class Results extends React.Component{
             moreData:{
 
             },
-            compareData:[]
+            compareData:[],
+            compareResponse:[]
         }
         this.getDetails=this.getDetails.bind(this)
         this.closeModal=this.closeModal.bind(this)
         this.handleChange = this.handleChange.bind(this)
+        this.compareData = this.compareData.bind(this)
     }
     getDetails(url){
         var that=this
@@ -52,6 +54,23 @@ class Results extends React.Component{
     closeModal(){
         this.setState({
             modal:false
+        })
+    }
+
+    compareData(){
+        var that=this;
+        var compare=this.state.compareData;
+        var compareResponse=[];
+        compare.forEach(function(anItem){
+            axios.get(anItem.url).then(function(response){
+                compareResponse=that.state.compareResponse
+                compareResponse.push(response)
+                that.setState({
+                    compareResponse:compareResponse
+                },function(){
+                    console.log(that.state.compareResponse)
+                })
+            })
         })
     }
     render(){
@@ -96,7 +115,7 @@ class Results extends React.Component{
 
             </div>
                 {modalView}
-                <button type="button" onClick={() => this.props.closeModal()} class="btn btn-primary">Compare</button>
+                <center><button type="button" onClick={() => this.compareData()} class="btn btn-primary">Compare</button></center>
             </div>
         )
     }
