@@ -15,7 +15,8 @@ class Results extends React.Component{
             compareData:[],
             compareResponse:[],
             display:'none',
-            compareDisplay:false
+            compareDisplay:false,
+            compareModal:false
         }
         this.getDetails=this.getDetails.bind(this)
         this.closeModal=this.closeModal.bind(this)
@@ -55,7 +56,8 @@ class Results extends React.Component{
     }
     closeModal(){
         this.setState({
-            modal:false
+            modal:false,
+            compareModal:false
         })
     }
 
@@ -69,12 +71,13 @@ class Results extends React.Component{
         var compareResponse=that.state.compareResponse;
         compare.forEach(function(anItem,index){
             axios.get(anItem.url).then(function(response){
-                compareResponse.push(response)
+                compareResponse.push(response.data)
                 if(index==compare.length-1){
                     that.setState({
                         compareResponse:compareResponse,
                         compareDisplay:false,
-                        display:'none'
+                        display:'none',
+                        compareModal:true
                     })
                 }
             })
@@ -88,6 +91,13 @@ class Results extends React.Component{
         }
         else{
             var modalView=""
+        }
+
+        if(this.state.compareModal){
+            var compareView = <CompareView visible={that.state.compareModal} data={this.state.compareResponse} closeModal={that.closeModal}/>
+        }
+        else{
+            var compareView=""
         }
         
         return(
@@ -113,7 +123,7 @@ class Results extends React.Component{
                             <p>Add to Compare <input onChange={(e)=>that.handleChange(e,item)} type="checkbox" className=""/></p>
                             <a href={item.html_url} target="_blank" className="card-link">View Profile</a>
                             {detailView}
-                           
+                            
                         </div>
                         </div>
                     )
@@ -122,6 +132,7 @@ class Results extends React.Component{
 
             </div>
                 {modalView}
+                {compareView}
                 <center><button type="button" disabled={this.state.compareDisplay} onClick={() => this.compareData()} class="btn btn-primary">Compare<i  className="fa fa-spinner fa-spin" style={{fontSize:'24px',display:this.state.display}}></i></button></center>
             </div>
         )
@@ -194,6 +205,73 @@ class Details extends React.Component {
                         <p>Location: {data.location}</p>
                         <p>Followers: {data.followers}</p>
                         <p>Following: {data.following}</p> */}
+                        <center><button type="button" onClick={() => this.props.closeModal()} class="btn btn-primary">Close</button></center>
+                    </div>
+                </Modal>
+            
+        );
+    }
+}
+
+class CompareView extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            visible : this.props.visible
+        }
+    }
+ 
+    openModal() {
+        this.setState({
+            visible : this.props.visible
+        });
+    }
+ 
+    closeModal() {
+        this.setState({
+            visible : false
+        });
+    }
+ 
+    render() {
+        var data=this.props.data
+        console.log('data is')
+        console.log(this.props.data)
+        return (
+            
+                <Modal visible={true} width="600" height="500" effect="fadeInUp" onClickAway={() => this.closeModal()}>
+                    <div>
+                        <center><h1><i>Details:</i></h1></center>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Name:</th>
+                                    <th>Bio:</th>
+                                    <th>Company:</th>
+                                    <th>Email:</th>
+                                    <th>Location:</th>
+                                    <th>Followers:</th>
+                                    <th>Following:</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {
+                                data.map(function(item,index){
+                                    return(
+                                    <tr key={index}>
+                                        <td>{item.name||'N/A'}</td>
+                                        <td>{item.bio||'N/A'}</td>
+                                        <td>{item.company||'N/A'}</td>
+                                        <td>{item.email||'N/A'}</td>
+                                        <td>{item.location}</td>
+                                        <td>{item.followers}</td>
+                                        <td>{item.following}</td>
+                                    </tr>
+                                    )
+                                })
+                            }
+                            </tbody>
+                        </table>
                         <center><button type="button" onClick={() => this.props.closeModal()} class="btn btn-primary">Close</button></center>
                     </div>
                 </Modal>
