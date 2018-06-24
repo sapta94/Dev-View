@@ -26,7 +26,8 @@ class Results extends React.Component{
     getDetails(url){
         var that=this
         that.setState({
-            moreDetails:true
+            moreDetails:true,
+            modal:true
         })
         axios.get(url).then(function(response){
             that.setState({
@@ -122,7 +123,7 @@ class Results extends React.Component{
                             <p className="card-text"><b>Score: </b>{item.score} </p>
                             <p>Add to Compare <input onChange={(e)=>that.handleChange(e,item)} type="checkbox" className=""/></p>
                             <a href={item.html_url} target="_blank" className="card-link">View Profile</a>
-                            {detailView}
+                            <a href="javascript:void(0);" onClick={()=>that.getDetails(item.url)}  className="card-link">More details</a>
                             
                         </div>
                         </div>
@@ -162,6 +163,17 @@ class Details extends React.Component {
     render() {
         var data=this.props.data
         console.log(this.props.data)
+        if(data.name==null||data.name==undefined){
+            return (
+                <Modal visible={true} width="600" height="500" effect="fadeInUp" onClickAway={() => this.closeModal()}>
+                    <div>
+                        <center><h1><i>Loading</i></h1></center>
+                        <center><img src="../extra/animated_spinner.gif" height="200" weight="200"/></center>
+                        <center><button type="button" onClick={() => this.props.closeModal()} class="btn btn-primary">Close</button></center>
+                    </div>
+                </Modal>
+            )
+        }
         return (
             
                 <Modal visible={true} width="600" height="500" effect="fadeInUp" onClickAway={() => this.closeModal()}>
