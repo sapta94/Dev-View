@@ -66,16 +66,17 @@ class Results extends React.Component{
             display:''
         })
         var compare=this.state.compareData;
-        var compareResponse=[];
-        compare.forEach(function(anItem){
+        var compareResponse=that.state.compareResponse;
+        compare.forEach(function(anItem,index){
             axios.get(anItem.url).then(function(response){
-                compareResponse=that.state.compareResponse
                 compareResponse.push(response)
-                that.setState({
-                    compareResponse:compareResponse
-                },function(){
-                    console.log(that.state.compareResponse)
-                })
+                if(index==compare.length-1){
+                    that.setState({
+                        compareResponse:compareResponse,
+                        compareDisplay:false,
+                        display:'none'
+                    })
+                }
             })
         })
     }
