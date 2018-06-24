@@ -163,7 +163,7 @@ class Details extends React.Component {
     render() {
         var data=this.props.data
         console.log(this.props.data)
-        if(data.name==undefined){
+        if(data.login==undefined){
             return (
                 <Modal visible={true} width="600" height="500" effect="fadeInUp" onClickAway={() => this.closeModal()}>
                     <div>
@@ -182,7 +182,7 @@ class Details extends React.Component {
                         <table class="table table-bordered">
                             <tr>
                                 <th>Name:</th>
-                                <td>{data.name}</td>
+                                <td>{(data.name||data.login)}</td>
                             </tr>
                             <tr>
                                 <th>Bio:</th>
