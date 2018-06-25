@@ -251,7 +251,7 @@ class CompareView extends React.Component {
         console.log(this.props.data)
         return (
             
-                <Modal visible={true} width="600" height="500" effect="fadeInUp" onClickAway={() => this.closeModal()}>
+                <Modal visible={true} width="90%" height="500" effect="fadeInUp" onClickAway={() => this.closeModal()}>
                     <div>
                         <center><h1><i>Details:</i></h1></center>
                         <table class="table table-bordered">
