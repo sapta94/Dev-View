@@ -63,6 +63,7 @@ class SearchBar extends React.Component{
                 isSearching:false,
                 userData:response.data.items
             })
+            window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
         })
         .catch(function (error) {
             console.log(error);
