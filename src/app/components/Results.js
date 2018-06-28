@@ -102,7 +102,7 @@ class Results extends React.Component{
         }
         
         return(
-            <div style={{backgroundColor:'teal'}}>
+            <div style={{backgroundColor:'#d6dd9d'}}>
                 <div className="searchHead">
                     <p>-Results Here-</p>
                 </div>
