@@ -92,7 +92,7 @@ class SearchBar extends React.Component{
             var results='';
         }
         return(
-            <div>
+            <div className="container-fluid">
                 <div className="searchHead">
                     <p>-Search Here-</p>
                 </div>
