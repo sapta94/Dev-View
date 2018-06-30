@@ -15,12 +15,19 @@ class SearchBar extends React.Component{
                 'commit':''
             },
             isSearching:false,
-            userData:[]
+            userData:[],
+            retained:[]
         }
         this.onChange=this.onChange.bind(this)
         this.onSubmit=this.onSubmit.bind(this)
+        this.retainData=this.retainData.bind(this)
     }
 
+    retainData(arr){
+        this.setState({
+            retained:arr
+        })
+    }
     onChange(e){
         var id=e.target.name;
         var val=e.target.value;
@@ -58,10 +65,10 @@ class SearchBar extends React.Component{
         axios.get(url)
         .then(function (response) {
             console.log('now this is printed')
-            console.log(response);
+            console.log(that.state.retained);
             that.setState({
                 isSearching:false,
-                userData:response.data.items
+                userData:response.data.items.concat(that.state.retained)
             })
             window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
         })
@@ -86,7 +93,7 @@ class SearchBar extends React.Component{
             var button=<button type="button" onClick={that.onSubmit} className="btn btn-primary">Search</button>
         }
         if(resData.length>0){
-            var results = <Results result={resData}/>
+            var results = <Results retainData={this.retainData} result={resData}/>
         }
         else{
             var results='';
