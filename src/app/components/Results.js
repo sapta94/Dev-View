@@ -37,6 +37,10 @@ class Results extends React.Component{
             })
         })
     }
+
+    senBack(){
+
+    }
     handleChange(e,item){
         console.log(e.target.checked)
         var arr=this.state.compareData
@@ -54,6 +58,7 @@ class Results extends React.Component{
         this.setState({
             compareData:arr
         })
+        this.props.retainData(arr)
     }
     closeModal(){
         this.setState({
