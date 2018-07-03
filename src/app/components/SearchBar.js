@@ -66,9 +66,10 @@ class SearchBar extends React.Component{
         .then(function (response) {
             console.log('now this is printed')
             console.log(that.state.retained);
+            var retain=that.state.retained
             that.setState({
                 isSearching:false,
-                userData:response.data.items.concat(that.state.retained)
+                userData:retain.concat(response.data.items)
             })
             window.scrollTo(0, document.body.scrollHeight || document.documentElement.scrollHeight);
         })
